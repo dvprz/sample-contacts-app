@@ -39,11 +39,11 @@ export class RestService {
 					const key = query.sort;
 
 					if (query.order && query.order.toLowerCase() === 'asc') {
-						this.contacts.sort((a, b) => this.sortAsc(a, b, key))
+						this.contacts.sort((a, b) => this.sortAsc(a.first_name.toLowerCase(), b.first_name.toLowerCase()))
 					} else if (query.order && query.order.toLowerCase() === 'desc') {
-						this.contacts.sort((a, b) => this.sortDesc(a, b, key))
+						this.contacts.sort((a, b) => this.sortDesc(a.first_name.toLowerCase(), b.first_name.toLowerCase()))
 					} else {
-						this.contacts.sort((a, b) => this.sortAsc(a, b, key))
+						this.contacts.sort((a, b) => this.sortAsc(a.first_name.toLowerCase(), b.first_name.toLowerCase()))
 					}
 				}
 				observer.next(this.contacts);
@@ -72,7 +72,7 @@ export class RestService {
 		if (production) {
 			return Observable.create(observer => {
 				const copied = this.contacts.slice();
-				const last = copied.sort((a, b) => this.sortAsc(a, b, 'id')).pop()
+				const last = copied.sort((a, b) => this.sortAsc(a.id, b.id)).pop()
 
 				body.id = last.id + 1;
 
@@ -128,24 +128,24 @@ export class RestService {
         	.join('&');
     }
 
-	private sortDesc(a, b, key) {
-		if (a[key] > b[key]) {
+	private sortDesc(a, b) {
+		if (a > b) {
 			return -1
 		}
 
-		if (a[key] < b[key]) {
+		if (a < b) {
 			return 1
 		}
 
 		return 0;
 	}
 
-	private sortAsc(a, b, key) {
-		if (a[key] < b[key]) {
+	private sortAsc(a, b) {
+		if (a < b) {
 			return -1
 		}
 
-		if (a[key] > b[key]) {
+		if (a > b) {
 			return 1
 		}
 
