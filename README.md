@@ -1,6 +1,6 @@
 # Sample Contact app
 
-My goal was recreate to Google's Contacts app as an educational exercise. Some features were purposefully left out because they weren't part of the scope of this project.
+My goal was to recreate Google's Contacts app as an educational exercise. Some features were purposefully left out because they weren't part of the scope of this project.
 
 ## Getting started
 
@@ -12,6 +12,6 @@ This app uses [json-server] to mock up a backend but will fallback to a localSto
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server.
 
 [json-server]: https://github.com/typicode/json-server
