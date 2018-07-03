@@ -1,0 +1,23 @@
+.contact-avatar {
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	background-color: #868686;
+	margin: 5px 0;
+	overflow: hidden;
+}
+
+.contact-avatar-letter {
+	font-size: 28px;
+	line-height: 32px;
+	padding: 7px 0;
+	text-align: center;
+	color: rgba(255,255,255,0.6);
+	display: block;
+	font-weight: 400;
+}
+
+img {
+	width: 45px;
+	height: 45px;
+}

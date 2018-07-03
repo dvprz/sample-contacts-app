@@ -1,0 +1,32 @@
+.contact-name {
+	padding: 0 20px;
+	font-weight: 400;
+	font-size: 26px;
+	line-height: 30px;
+}
+
+.icon-table {
+	width: 100%;
+	padding: 15px 20px;
+}
+
+.icon-table td {
+	width: 25%;
+	/* display: flex;
+  	align-items: center;
+  	justify-content: center; */
+}
+
+.icon-table .mat-icon {
+	display: block;
+	margin: 0 auto;
+	width: 24px;
+}
+
+.icon-title {
+	display: block;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	margin-top:8px;
+}

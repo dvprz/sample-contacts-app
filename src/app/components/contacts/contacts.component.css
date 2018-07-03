@@ -1,0 +1,21 @@
+.mat-list-item {
+	outline: none;
+}
+
+.mat-list-item:hover {
+	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	font-weight: 400;
+}
+
+table tr td:first-child {
+	padding-right: 15px;
+	width: 60px;
+}
+
+.contact:hover {
+	cursor: pointer;
+}

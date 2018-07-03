@@ -1,0 +1,4 @@
+<div class="contact-avatar">
+	<img *ngIf="avatar" [src]="avatar" alt="">
+	<span *ngIf="!avatar && letter" class="contact-avatar-letter">{{ letter }}</span>
+</div>

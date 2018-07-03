@@ -1,0 +1,100 @@
+<div class="mdl-layout mdl-js-layout">
+
+	<mat-toolbar>
+		<button mat-icon-button (click)="close()">
+			<mat-icon aria-label="Go back to contacts">close</mat-icon>
+		</button>
+
+		<h1 class="view-title has-icon-to-the-left">{{ viewTitle }}</h1>
+
+		<span class="fill-remaining-space"></span>
+
+		<button mat-button *ngIf="contact && contact.id" (click)="delete()">
+			DELETE
+		</button>
+
+		<button mat-button [disabled]="contactForm.invalid" (click)="save()">
+			SAVE
+		</button>
+	</mat-toolbar>
+
+	<form *ngIf="contact" class="contact-form" [formGroup]="contactForm" (keypress.enter)="save()" (ngSubmit)="save()">
+
+		<div class="edit-avatar-ui-wrapper">
+			<div class="edit-avatar-ui" (click)="editAvatar()">
+				<mat-icon>camera_alt</mat-icon>
+				<div *ngIf="avatar_url" class="overlay"></div>
+				<img *ngIf="avatar_url" class="avatar" src="{{ avatar_url }}" alt="">
+			</div>
+
+			<input type="hidden" #avatar name="avatar_url" formControlName="avatar_url">
+		</div>
+
+		<table>
+			<tbody>
+				<tr>
+					<td><mat-icon>person</mat-icon></td>
+					<td>
+						<mat-form-field [floatLabel]="'never'" *ngIf="showExtraPersonFormFields" class="full-width-form-field">
+							<input matInput name="name_prefix" placeholder="Name prefix" type="text" formControlName="name_prefix">
+						</mat-form-field>
+
+						<mat-form-field [floatLabel]="'never'" class="full-width-form-field">
+							<input matInput name="first_name" placeholder="First name" type="text" formControlName="first_name">
+							<mat-error *ngIf="contactForm.get('first_name').touched && contactForm.get('first_name').invalid">
+								First name is required
+							</mat-error>
+						</mat-form-field>
+
+						<mat-form-field [floatLabel]="'never'" class="full-width-form-field">
+							<input matInput name="last_name" placeholder="Last name" type="text" formControlName="last_name">
+						</mat-form-field>
+
+						<mat-form-field [floatLabel]="'never'" *ngIf="showExtraPersonFormFields" class="full-width-form-field">
+							<input matInput name="name_suffix" placeholder="Name suffix" type="text" formControlName="name_suffix">
+						</mat-form-field>
+					</td>
+					<td><toggle (toggled)="toggleExtraPersonFormFields($event)" class="toggle"></toggle></td>
+				</tr>
+				<tr>
+					<td><mat-icon>business</mat-icon></td>
+					<td>
+						<mat-form-field [floatLabel]="'never'" class="full-width-form-field">
+							<input matInput name="company" placeholder="Company" type="text" formControlName="company">
+						</mat-form-field>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><mat-icon>local_phone</mat-icon></td>
+					<td>
+						<mat-form-field [floatLabel]="'never'" class="full-width-form-field">
+							<input matInput name="phone" #phone placeholder="Phone" type="tel" formControlName="phone">
+						</mat-form-field>
+
+						<mat-form-field>
+							<mat-select name="phone_label" formControlName="phone_label">
+								<mat-option>No label</mat-option>
+								<mat-option *ngFor="let label of labels" [value]="label | slugify | lowercase">
+									{{ label }}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><mat-icon>email</mat-icon></td>
+					<td>
+						<mat-form-field [floatLabel]="'never'" class="full-width-form-field">
+							<input matInput name="email" placeholder="Email" type="email" formControlName="email">
+						</mat-form-field>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</form>
+
+</div>

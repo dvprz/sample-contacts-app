@@ -1,0 +1,42 @@
+<div class="mdl-layout mdl-js-layout">
+
+	<mat-toolbar color="primary">
+		<h1>Contacts</h1>
+	</mat-toolbar>
+
+	<main class="mdl-layout__content">
+		<div class="page-content">
+
+			<mat-spinner *ngIf="!resourcesHaveLoaded"></mat-spinner>
+
+			<table *ngIf="resourcesHaveLoaded">
+				<tbody>
+					<tr *ngFor="let contact of contacts" class="contact" routerLink="/contacts/{{ contact.id }}">
+						<td><contact-avatar [letter]="contact.first_name[0]" [avatar]="contact.avatar_url"></contact-avatar></td>
+						<td>
+							<p>
+								{{ contact | contactName }}
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- <mat-list *ngIf="resourcesHaveLoaded">
+				<mat-list-item *ngFor="let contact of contacts" routerLink="/contacts/{{ contact.id }}">
+					<mat-icon mat-list-icon>person</mat-icon>
+					<contact-avatar [letter]="contact.first_name[0]"></contact-avatar>
+					<h4 mat-line>
+						{{ contact.name_prefix? (contact.name_prefix + ' '): '' }}
+						{{ contact.first_name }} {{ contact.last_name }}
+					</h4>
+				</mat-list-item>
+			</mat-list> -->
+
+	    </div>
+	</main>
+
+	<button mat-fab color="accent" (click)="add()" class="quick-app-action-button">
+		<mat-icon>add</mat-icon>
+	</button>
+</div>

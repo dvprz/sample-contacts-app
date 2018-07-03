@@ -1,0 +1,48 @@
+<div class="mdl-layout mdl-js-layout">
+
+	<mat-toolbar color="primary">
+		<button mat-icon-button (click)="back()">
+			<mat-icon aria-label="Go back to contacts">arrow_back</mat-icon>
+		</button>
+	</mat-toolbar>
+
+	<main *ngIf="resourceHasLoaded">
+		<div class="page-content">
+
+			<img style="width:100%;" *ngIf="contact.avatar_url" src="{{ contact.avatar_url }}" alt="">
+
+			<h1 class="contact-name">{{ contact | contactName }}</h1>
+
+			<mat-divider></mat-divider>
+
+			<table class="icon-table">
+				<tbody>
+					<tr>
+						<td>
+							<mat-icon>phone</mat-icon>
+							<span class="icon-title">Call</span>
+						</td>
+						<td>
+							<mat-icon>message</mat-icon>
+							<span class="icon-title">Text</span>
+						</td>
+						<td>
+							<mat-icon>videocam</mat-icon>
+							<span class="icon-title">Set up</span>
+						</td>
+						<td>
+							<mat-icon>attach_money</mat-icon>
+							<span class="icon-title">Pay</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<button mat-fab color="primary" (click)="edit()" class="quick-app-action-button">
+				<mat-icon>edit</mat-icon>
+			</button>
+
+		</div>
+	</main>
+
+</div>

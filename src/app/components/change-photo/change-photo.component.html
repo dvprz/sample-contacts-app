@@ -1,0 +1,8 @@
+<p mat-dialog-title>Change photo</p>
+<button *ngIf="!hasImage" mat-button (click)="remove()">Remove photo</button>
+<button mat-button (click)="new()">Get new photo</button>
+<mat-dialog-actions class="button-actions">
+	<button mat-button (click)="cancel()">
+		CANCEL
+	</button>
+</mat-dialog-actions>
