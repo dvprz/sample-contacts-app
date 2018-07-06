@@ -1,7 +1,6 @@
 # Sample Contact app
 
-![Contacts app gif]
-(http://daveperez.io/gifs/contacts-app.gif)
+![alt text](http://daveperez.io/gifs/contacts-app.gif)
 
 My goal was to recreate Google's Contacts app as an educational exercise. Some features were purposefully left out because they weren't part of the scope of this project.
 
